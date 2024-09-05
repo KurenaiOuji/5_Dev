@@ -1,0 +1,25 @@
+body{
+    background-color: antiquewhite;
+}
+
+#center-container img{
+    float: left;
+}
+
+#center-container p{
+    margin-left: 17rem;
+}
+
+iframe{
+    width: 100%;
+    height: 480px;
+}
+
+p{
+    font-size: large;
+}
+
+#Personajes-Container image{
+    float: left;
+}
+
