@@ -1,0 +1,62 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 0;
+    font-family: system-ui, sans-serif;
+  }
+  h1{
+    margin: 0; 
+  }
+  .producto {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 5px;
+  }
+  .carrito {
+    border: 2px solid #444;
+    padding: 10px;
+    margin-top: 20px;
+  }
+  .hidden {
+    display: none;
+  }
+  .float-bg{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 30%;
+  }
+  .float{
+    font-size:x-large;
+    position: fixed;
+    inset: 0px;
+    width: 20%;
+    height: 50%;
+    margin: auto;
+    text-align: center;
+    background: grey;
+    transition: all .4s ease;
+  }
+  .loader {
+    margin: auto;
+    margin-top: 20%;
+    width: 40%;
+    aspect-ratio: 1;
+    --c: no-repeat linear-gradient(#000 0 0);
+    background: 
+      var(--c) 0%   50%,
+      var(--c) 50%  50%,
+      var(--c) 100% 50%;
+    background-size: 20% 100%;
+    animation: l1 1s infinite linear;
+  }
+  @keyframes l1 {
+    0%  {background-size: 20% 100%,20% 100%,20% 100%}
+    33% {background-size: 20% 10% ,20% 100%,20% 100%}
+    50% {background-size: 20% 100%,20% 10% ,20% 100%}
+    66% {background-size: 20% 100%,20% 100%,20% 10% }
+    100%{background-size: 20% 100%,20% 100%,20% 100%}
+  }
