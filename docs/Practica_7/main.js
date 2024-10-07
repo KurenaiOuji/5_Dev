@@ -11,6 +11,10 @@ const $confirmPasswordError = d.querySelector("#confirm-password-error");
 const $successMessage = d.querySelector("#success-message");
 const $errorsMessages = d.querySelectorAll(".error");
 
+const $mensajeCompra = d.querySelector("#mensaje-compra");
+const $loader = d.querySelector("#loader");
+const $exitloader = d.querySelector(".float-bg");
+
 // Función de Validación del Formulario
 function validateForm(e) {
   // Reiniciar mensajes de error y éxito
@@ -22,10 +26,15 @@ function validateForm(e) {
   let isValid = true;
 
   //Validar Nombre
+  const namePattern = /^[A-Za-z\s]+$/;
   if ($nameInput.value.trim() === "") {
     $nameError.innerText = "El nombre es obligatorio";
     isValid = false;
+  }else if (!namePattern.test($nameInput.value.trim())) {
+    $emailError.innerText = "Favor de usar solo Letras y Espacio";
+    isValid = false;
   }
+
 
   //Validar Email
   let emailPattern = /^(\w+[/./-]?){1,}@[a-z]+[/.]\w{2,}$/;
@@ -58,10 +67,28 @@ function validateForm(e) {
     e.preventDefault();
   } else {
     e.preventDefault();
-    $successMessage.innerText = "Formulario enviado exitosamente.";
+    $mensajeCompra.classList.remove("hidden");
+  let i = 5;
+  let countdownTimer = setInterval(function() {
+    i = i - 1;
+    if(i <= 0) {
+      clearInterval(countdownTimer);
+      $loader.classList.remove("loader")
+      $loader.textContent = "Formulario enviado exitosamente."
+      $exitloader.classList.add("exit")
+    }
+    }, 1000); 
+    
+  $exitloader.addEventListener("click",function (e) {
+    if ($exitloader.classList.contains("exit")){
+      $mensajeCompra.classList.add("hidden");
+      $exitloader.classList.remove("exit");
+    }
+  });
+    $successMessage.textContent = "Formulario enviado exitosamente."
     $form.reset();
     // Aquí puedes manejar el envío real de datos a un servidor, por ejemplo, usando fetch.
   }
 }
 
-$form.addEventListener("submit", validateForm);
+$form.addEventListener("submit", validateForm)
