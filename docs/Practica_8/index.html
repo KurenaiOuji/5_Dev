@@ -1,35 +1,98 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Simulador de Tienda en Línea</title>
-    <link rel="stylesheet" href="./style.css" />
-</head>
-<body>
-    <h1>Simulador de Tienda en Línea</h1>
-    <section id="productos">
-    <h2>Productos</h2>
-    <div id="prod" class="grid">
-    </div>
-    </section>
-    <section id="mensaje-loader" class="hidden text-align-center">
-        <h2>Procesando su compra</h2>
-        <div class="spinner-grow text-dark" role="status">
-            <span class="visually-hidden">Loading...</span>
-        </div>
+    <title>Programación Asíncrona</title>
+    <style>
+      * * {
+        box-sizing: border-box;
+      }
+
+      html {
+        font-size: 100%;
+      }
+
+      body {
+        font-family: system-ui, sans-serif;
+      }
+
+      .producto {
+        border: 1px solid #ccc;
+        padding: 0.5rem;
+        margin: 0.25rem;
+      }
+
+      .carrito {
+        border: 2px solid #444;
+        padding: 0.5rem;
+        margin-top: 1.25rem;
+      }
+
+      .hidden {
+        display: none;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      .loader {
+        border: 0.5rem solid #f3f3f3;
+        border-radius: 50%;
+        border-top: 0.5rem solid #3498db;
+        width: 4rem;
+        height: 4rem;
+        animation: spin 2s linear infinite;
+        margin: 1.25rem auto;
+      }
+
+      .loading-message {
+        text-align: center;
+        margin: 1.25rem;
+        font-size: 1.25rem;
+      }
+
+      img {
+        height: 96px;
+        width: auto;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2vh;
+        margin: 1rem auto;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Repaso de Peticiones de Datos Asíncronos</h1>
+    <h2>Cargar Datos desde una API REST Externa</h2>
+    <section id="products" class="grid"></section>
+    <script src="main.js"></script>
+    <script src="carrito.js"></script>
+    <section id="loading" class="hidden">
+      <div class="loading-message">
+        Procesando tu compra, por favor espera...
+      </div>
+      <div class="loader"></div>
     </section>
     <section id="mensaje-compra" class="hidden">
-        <h2>¡Compra realizada con éxito!</h2>
-        <p>Gracias por su compra.</p>
+      <h2>¡Compra realizada con éxito!</h2>
+      <p>Gracias por su compra.</p>
     </section>
-    <section id="carrito" class="carrito">
-        <h2>Carrito de Compras</h2>
-        <ol id="lista-carrito">
-        </ol>
-        <p>Total: $<span id="total-carrito">0</span></p>
-        <button id="btn-compra">Comprar</button>
-    </section>
-    <script src="main.js" type="module"></script>
-</body>
+    <section id="carrito" class="box">
+      <h2>Carrito de Compras</h2>
+      <ul id="lista-carrito"></ul>
+      <p>Total: $<span id="total-carrito">0</span></p>
+      <button id="btn-compra" disabled>Comprar</button>
+  </section>
+  </body>
 </html>
