@@ -4,73 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Programación Asíncrona</title>
-    <style>
-      * * {
-        box-sizing: border-box;
-      }
-
-      html {
-        font-size: 100%;
-      }
-
-      body {
-        font-family: system-ui, sans-serif;
-      }
-
-      .producto {
-        border: 1px solid #ccc;
-        padding: 0.5rem;
-        margin: 0.25rem;
-      }
-
-      .carrito {
-        border: 2px solid #444;
-        padding: 0.5rem;
-        margin-top: 1.25rem;
-      }
-
-      .hidden {
-        display: none;
-      }
-
-      @keyframes spin {
-        0% {
-          transform: rotate(0deg);
-        }
-        100% {
-          transform: rotate(360deg);
-        }
-      }
-
-      .loader {
-        border: 0.5rem solid #f3f3f3;
-        border-radius: 50%;
-        border-top: 0.5rem solid #3498db;
-        width: 4rem;
-        height: 4rem;
-        animation: spin 2s linear infinite;
-        margin: 1.25rem auto;
-      }
-
-      .loading-message {
-        text-align: center;
-        margin: 1.25rem;
-        font-size: 1.25rem;
-      }
-
-      img {
-        height: 96px;
-        width: auto;
-      }
-
-      .grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 2vh;
-        margin: 1rem auto;
-        text-align: center;
-      }
-    </style>
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
     <h1>Repaso de Peticiones de Datos Asíncronos</h1>
